@@ -9,6 +9,8 @@ import de.sirvincelot24.mantle_reforged.client.book.data.BookData;
 
 import javax.annotation.Nullable;
 
+import java.awt.*;
+
 import static de.sirvincelot24.mantle_reforged.client.screen.book.Textures.TEX_BOOK;
 
 public class ArrowButton extends Button {

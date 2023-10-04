@@ -9,6 +9,7 @@ import net.minecraft.network.chat.TextComponent;
 import de.sirvincelot24.mantle_reforged.client.book.data.SectionData;
 import de.sirvincelot24.mantle_reforged.client.screen.book.TextDataRenderer;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

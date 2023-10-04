@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import de.sirvincelot24.mantle_reforged.Mantle;
 import de.sirvincelot24.mantle_reforged.client.book.data.element.TextData;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

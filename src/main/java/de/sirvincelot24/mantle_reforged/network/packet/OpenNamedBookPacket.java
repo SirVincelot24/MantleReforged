@@ -12,6 +12,8 @@ import net.minecraftforge.network.NetworkEvent;
 import de.sirvincelot24.mantle_reforged.client.book.BookLoader;
 import de.sirvincelot24.mantle_reforged.client.book.data.BookData;
 
+import java.awt.*;
+
 @AllArgsConstructor
 public class OpenNamedBookPacket implements IThreadsafePacket {
   private static final String BOOK_ERROR = "command.mantle.book_test.not_found";

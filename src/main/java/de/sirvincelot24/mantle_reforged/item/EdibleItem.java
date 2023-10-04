@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import de.sirvincelot24.mantle_reforged.util.TranslationHelper;
 
 import javax.annotation.Nullable;
+import java.awt.*;
 import java.util.List;
 
 public class EdibleItem extends Item {

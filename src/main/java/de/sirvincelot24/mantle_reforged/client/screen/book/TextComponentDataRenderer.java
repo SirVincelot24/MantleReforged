@@ -12,6 +12,7 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraftforge.client.gui.GuiUtils;
 import de.sirvincelot24.mantle_reforged.client.book.data.element.TextComponentData;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
