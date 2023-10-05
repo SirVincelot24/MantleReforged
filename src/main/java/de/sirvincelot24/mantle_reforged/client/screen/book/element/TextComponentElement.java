@@ -8,6 +8,7 @@ import de.sirvincelot24.mantle_reforged.client.book.action.StringActionProcessor
 import de.sirvincelot24.mantle_reforged.client.book.data.element.TextComponentData;
 import de.sirvincelot24.mantle_reforged.client.screen.book.TextComponentDataRenderer;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

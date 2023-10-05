@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+//import net.minecraft.network.chat.TextComponent;
 import de.sirvincelot24.mantle_reforged.client.book.data.SectionData;
 import de.sirvincelot24.mantle_reforged.client.screen.book.TextDataRenderer;
 
