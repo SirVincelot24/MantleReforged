@@ -175,7 +175,7 @@ public class TextDataRenderer {
 
     if (BookScreen.debug && !action.isEmpty()) {
       tooltip.add(Component.empty());
-      tooltip.add(new TextComponent("Action: " + action).withStyle(ChatFormatting.GRAY));
+      tooltip.add(Component.literal("Action: " + action).withStyle(ChatFormatting.GRAY));
     }
 
     return action;

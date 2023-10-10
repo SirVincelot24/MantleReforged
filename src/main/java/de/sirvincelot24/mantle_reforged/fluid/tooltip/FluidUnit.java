@@ -3,7 +3,7 @@ package de.sirvincelot24.mantle_reforged.fluid.tooltip;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class FluidUnit {
   public int getText(List<Component> tooltip, int amount) {
     int full = amount / needed;
     if (full > 0) {
-      tooltip.add(new TranslatableComponent(key, full).withStyle(ChatFormatting.GRAY));
+      tooltip.add(Component.translatable(key, full).withStyle(ChatFormatting.GRAY));
     }
     return amount % needed;
   }

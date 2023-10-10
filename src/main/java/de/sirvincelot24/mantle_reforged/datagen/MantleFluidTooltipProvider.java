@@ -1,7 +1,7 @@
 package de.sirvincelot24.mantle_reforged.datagen;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.FluidType;
 import de.sirvincelot24.mantle_reforged.Mantle;
 import de.sirvincelot24.mantle_reforged.fluid.tooltip.AbstractFluidTooltipProvider;
 import de.sirvincelot24.mantle_reforged.fluid.tooltip.FluidTooltipHandler;
@@ -15,8 +15,8 @@ public class MantleFluidTooltipProvider extends AbstractFluidTooltipProvider {
   @Override
   protected void addFluids() {
     add("buckets")
-      .addUnit("kilobucket", FluidAttributes.BUCKET_VOLUME * 1000)
-      .addUnit("bucket", FluidAttributes.BUCKET_VOLUME);
+      .addUnit("kilobucket", FluidType.BUCKET_VOLUME * 1000)
+      .addUnit("bucket", FluidType.BUCKET_VOLUME);
     addRedirect(FluidTooltipHandler.DEFAULT_ID, id("buckets"));
   }
 

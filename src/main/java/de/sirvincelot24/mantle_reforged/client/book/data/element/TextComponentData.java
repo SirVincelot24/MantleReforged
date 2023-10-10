@@ -1,7 +1,6 @@
 package de.sirvincelot24.mantle_reforged.client.book.data.element;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 
 import java.awt.*;
 
@@ -18,7 +17,7 @@ public class TextComponentData {
   public Component[] tooltips = null;
 
   public TextComponentData(String text) {
-    this(new TextComponent(text));
+    this(Component.literal(text));
   }
 
   public TextComponentData(Component text) {
