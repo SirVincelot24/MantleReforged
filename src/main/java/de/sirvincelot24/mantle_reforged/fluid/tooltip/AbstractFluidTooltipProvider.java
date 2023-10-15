@@ -21,7 +21,7 @@ import java.util.Map;
 /** Provider for fluid tooltip information */
 @SuppressWarnings("unused")
 public abstract class AbstractFluidTooltipProvider extends GenericDataProvider {
-  private final Map<ResourceLocation,ResourceLocation> redirects = new HashMap<>();;
+  private final Map<ResourceLocation,ResourceLocation> redirects = new HashMap<>();
   private final Map<ResourceLocation,FluidUnitListBuilder> builders = new HashMap<>();
   private final String modId;
 

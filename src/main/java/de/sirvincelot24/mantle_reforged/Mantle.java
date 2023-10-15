@@ -2,8 +2,8 @@ package de.sirvincelot24.mantle_reforged;
 
 import net.minecraft.Util;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -22,6 +22,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import de.sirvincelot24.mantle_reforged.block.entity.MantleSignBlockEntity;
@@ -98,10 +100,11 @@ public class Mantle {
     TagPreference.init();
   }
 
-  private void registerRecipeSerializers(final RegistryEvent.Register<RecipeSerializer<?>> event) {
-    RegistryAdapter<RecipeSerializer<?>> adapter = new RegistryAdapter<>(event.getRegistry());
-    adapter.register(new ShapedFallbackRecipe.Serializer(), "crafting_shaped_fallback");
-    adapter.register(new ShapedRetexturedRecipe.Serializer(), "crafting_shaped_retextured");
+
+  private void registerRecipeSerializers(final RegisterEvent event ){
+  event.register(ForgeRegistries.Keys.RECIPE_SERIALIZERS, recipeSerializerRegisterHelper -> {
+    recipeSerializerRegisterHelper.register("crafting_shaped_retextured", new ShapedRetexturedRecipe.Serializer());
+    recipeSerializerRegisterHelper.register("crafting_shaped_fallback", new ShapedFallbackRecipe.Serializer());
 
     CraftingHelper.register(TagEmptyCondition.SERIALIZER);
     CraftingHelper.register(FluidContainerIngredient.ID, FluidContainerIngredient.SERIALIZER);
@@ -138,12 +141,16 @@ public class Mantle {
       MobTypePredicate.MOB_TYPES.register(new ResourceLocation("illager"), MobType.ILLAGER);
       MobTypePredicate.MOB_TYPES.register(new ResourceLocation("water"), MobType.WATER);
     }
+  });
+  };
+
+
+  private void registerBlockEntities(final RegisterEvent event){
+    event.register(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES, blockEntityTypeRegisterHelper -> {
+      blockEntityTypeRegisterHelper.register(MantleSignBlockEntity::new, "sign", MantleSignBlockEntity::buildSignBlocks);
+    });
   }
 
-  private void registerBlockEntities(final RegistryEvent.Register<BlockEntityType<?>> event) {
-    BlockEntityTypeRegistryAdapter adapter = new BlockEntityTypeRegistryAdapter(event.getRegistry());
-    adapter.register(MantleSignBlockEntity::new, "sign", MantleSignBlockEntity::buildSignBlocks);
-  }
 
   private void gatherData(final GatherDataEvent event) {
     DataGenerator generator = event.getGenerator();
@@ -155,13 +162,14 @@ public class Mantle {
     }
   }
 
-  /**
-   * Gets a resource location for Mantle
-   * @param name  Name
-   * @return  Resource location instance
-   */
-  public static ResourceLocation getResource(String name) {
-    return new ResourceLocation(modId, name);
+  ///**
+  // * Gets a resource location for Mantle
+  // * @param name  Name
+  // * @return  Resource location instance
+  // */
+
+  public static ResourceLocation getResource(String name){
+    return  new ResourceLocation(modId, name);
   }
 
   /**
@@ -181,6 +189,6 @@ public class Mantle {
    * @return  Translation key
    */
   public static MutableComponent makeComponent(String base, String name) {
-    return new TranslatableComponent(makeDescriptionId(base, name));
+    return Component.translatable(makeDescriptionId(base, name));
   }
 }
